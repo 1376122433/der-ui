@@ -1,4 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-
-createApp(App).mount('#app')
+import "./style/index.css"
+import derui from "../packages/index"
+const app =createApp(App)
+app.use(derui)
+app.mount('#app')
