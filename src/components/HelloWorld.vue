@@ -1,6 +1,6 @@
 <template>
   <h1>{{ msg }}</h1>
-  <der-button type="success" size="mini">点我</der-button>
+  <der-button type="success" size="mini" disabled @click="oc">点我</der-button>
 </template>
 
 <script lang="ts">
@@ -15,7 +15,10 @@ export default defineComponent({
   },
   setup: () => {
     const count = ref(0)
-    return { count }
+    function oc (e: any){
+      console.log('oc', e);
+    }
+    return { count, oc }
   }
 })
 </script>

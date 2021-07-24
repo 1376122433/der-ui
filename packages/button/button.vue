@@ -3,18 +3,41 @@
     :class="[
       'der-button',
       type ? 'der-button--' + type : '',
-      size ? 'der-button--' + size : ''
+      size ? 'der-button--' + size : '',
+      {
+        'is-disabled': buttonDisabled,
+        // 'is-loading': loading,
+        // 'is-plain': plain,
+        // 'is-round': round,
+        // 'is-circle': circle
+      }
     ]"
+    :disabled="buttonDisabled"
   >
-    <span><slot></slot></span>
+    <span>
+      <slot></slot>
+    </span>
   </button>
 </template>
 
 <script lang="ts">
-import { ref, defineComponent, PropType, computed, createApp } from 'vue'
+import { ref, defineComponent, computed, createApp } from 'vue'
+import { PropType } from 'vue'
 type IButtonType = PropType<'primary' | 'success' | 'warning' | 'danger' | 'info' | 'text' | 'default'>
 type ComponentSize = PropType<'large' | 'medium' | 'small' | 'mini'>
 
+interface IButtonProps {
+  type: IButtonType
+  size: PropType<ComponentSize>
+  icon: string
+  nativeType: string
+  loading: boolean
+  disabled: boolean
+  plain: boolean
+  autofocus: boolean
+  round: boolean
+  circle: boolean
+}
 export default defineComponent({
   name: 'DerButton',
   props: {
@@ -29,9 +52,12 @@ export default defineComponent({
     round: Boolean,
     circle: Boolean,
   },
-  setup: (props) => {
+  setup: (props, {emit}) => {
+    const buttonDisabled = computed(() => {
+      return props.disabled
+    })
     return {
-
+      buttonDisabled
     }
   }
 })
