@@ -1,6 +1,6 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <HelloWorld :msg="msg" />
 </template>
 
 <script lang="ts">
@@ -11,6 +11,14 @@ export default defineComponent({
   name: 'App',
   components: {
     HelloWorld
+  },
+  data() {
+    return {
+      msg: {
+        value: "Hello Vue 3 + TypeScript + Vite",
+        color: "green" //00a223
+      }
+    }
   }
 })
 </script>

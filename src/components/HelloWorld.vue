@@ -1,42 +1,35 @@
 <template>
-  <h1>{{ msg }}</h1>
+  <h1>{{ msg.value }}</h1>
   <der-button type="success" size="mini" @click="oc">点我</der-button>
 </template>
 
 <script lang="ts">
-import { ref, defineComponent } from 'vue'
 export default defineComponent({
-  name: 'HelloWorld',
-  props: {
-    msg: {
-      type: String,
-      required: true
-    }
-  },
-  setup: () => {
-    const count = ref(0)
-    function oc (e: any){
-      console.log('oc', e);
-    }
-    return { count, oc }
-  }
+  name: "HelloWorld"
 })
 </script>
 
+<script lang="ts" setup>
+import { ref, defineProps, defineComponent } from 'vue'
+import type { PropType } from 'vue'
+type titleInfo = {
+  value: string;
+  color: string
+}
+const props = defineProps({
+  msg: {
+      type: Object as PropType<titleInfo>,
+      required: true
+    }
+})
+const color = props.msg.color
+function oc(e: any) {
+  console.log('oc', e);
+}
+</script>
+
 <style scoped>
-a {
-  color: #42b983;
-}
-
-label {
-  margin: 0 0.5em;
-  font-weight: bold;
-}
-
-code {
-  background-color: #eee;
-  padding: 2px 4px;
-  border-radius: 4px;
-  color: #304455;
+h1 {
+  color: v-bind("props.msg.color");
 }
 </style>
