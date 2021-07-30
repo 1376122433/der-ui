@@ -1,6 +1,6 @@
 <template>
   <h1>{{ msg }}</h1>
-  <der-button type="success" size="mini" disabled @click="oc">点我</der-button>
+  <der-button type="success" size="mini" @click="oc">点我</der-button>
 </template>
 
 <script lang="ts">

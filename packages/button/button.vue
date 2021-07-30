@@ -13,6 +13,7 @@
       }
     ]"
     :disabled="buttonDisabled"
+    @click = "handelClick"
   >
     <span>
       <slot></slot>
@@ -56,27 +57,17 @@ export default defineComponent({
     const buttonDisabled = computed(() => {
       return props.disabled
     })
+    function handelClick() {
+      console.log('emit', emit);
+    }
     return {
-      buttonDisabled
+      buttonDisabled,
+      handelClick
     }
   }
 })
 </script>
 
-<style scoped>
-a {
-  color: #42b983;
-}
+<style scoped lang="scss">
 
-label {
-  margin: 0 0.5em;
-  font-weight: bold;
-}
-
-code {
-  background-color: #eee;
-  padding: 2px 4px;
-  border-radius: 4px;
-  color: #304455;
-}
 </style>

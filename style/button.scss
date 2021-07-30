@@ -1,0 +1,44 @@
+.der-button{
+    $color-w: #ffffff;
+    border: 0px solid $color-w;
+    margin: 0px;
+    min-width: 40px;
+    cursor: pointer;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+    outline:none;
+    &.der-button--default{
+      @include derButtonType(#606266, #ffffff);
+    }
+    &.der-button--primary{
+      @include derButtonType(#ffffff, #409eff);
+    }
+    &.der-button--success{
+      @include derButtonType(#ffffff, #67c23a);
+    }
+    &.der-button--info{
+      @include derButtonType(#ffffff, #909399);
+    }
+    &.der-button--warning{
+      @include derButtonType(#ffffff, #e6a23c);
+    }
+    &.der-button--danger{
+      @include derButtonType(#ffffff, #f56c6c);
+    }
+    &.der-button--medium{
+      @include derButtonSize(36px, 10px 20px,14px,4px);
+    }
+    &.der-button--small{
+      @include derButtonSize(32px, 9px 15px,12px,3px);
+    }
+    &.der-button--mini{
+      @include derButtonSize(28px, 7px 15px,12px,3px);
+    }
+    &.is-disabled{
+        opacity: .5;
+        cursor: not-allowed; 
+    }
+}
+  

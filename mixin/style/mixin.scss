@@ -1,0 +1,10 @@
+@mixin derButtonType($color, $backgroundColor) {
+    color: $color;
+    background-color: $backgroundColor;
+}
+@mixin derButtonSize($minHeight, $padding, $fontSize, $borderRadius) {
+    min-height:$minHeight;
+    padding:$padding;
+    font-size:$fontSize;
+    border-radius:$borderRadius;
+}
